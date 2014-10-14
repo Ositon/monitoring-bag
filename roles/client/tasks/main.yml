@@ -34,7 +34,7 @@
 - name: Install memory metrics
   get_url: 
     dest=/etc/sensu/plugins/memory-metrics.rb 
-    url=https://raw.github.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics.rb
+    url=https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/memory-metrics.rb
     mode=755
   notify: restart sensu-client
 
