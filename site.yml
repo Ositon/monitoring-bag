@@ -38,3 +38,8 @@
     - { role: base }
     - { role: client, subscriptions: "\"common\",\"master\"" }
 
+- hosts: single-node
+  sudo: True
+  roles: 
+    - { role: base }
+    - { role: client, subscriptions: "\"common\",\"single-node\"" }

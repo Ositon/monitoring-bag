@@ -10,13 +10,13 @@
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-procs.rb -p tomcat7 -C 1 ",
       "interval": 60,
-      "subscribers": [ "master" ]
+      "subscribers": [ "master", "single-node" ]
     },
     "check-oozie": {
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-procs.rb -p oozie -C 1 ",
       "interval": 60,
-      "subscribers": [ "master" ]
+      "subscribers": [ "master", "single-node" ]
     },
     "check-glusterfsd": {
       "handlers": ["default"],
@@ -34,7 +34,7 @@
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-procs.rb -p 'postgres: seqware' -C 1 ",
       "interval": 60,
-      "subscribers": [ "master" ]
+      "subscribers": [ "master", "single-node" ]
     },
     "free_memory_check": {
       "handlers": ["default"],
@@ -65,7 +65,7 @@
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-procs.rb -p nfsd4 -C 1 ",
       "interval": 60,
-      "subscribers": [ "master" ]
+      "subscribers": [ "master", "single-node" ]
     },
     "check-ntp": {
       "handlers": ["default"],
@@ -77,13 +77,13 @@
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-procs.rb -p /usr/lib/gridengine/sge_execd -C 1 ",
       "interval": 60,
-      "subscribers": [ "compute" ]
+      "subscribers": [ "compute", "single-node" ]
     },
     "sge_master_check": {
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-procs.rb -p /usr/lib/gridengine/sge_qmaster -C 1 ",
       "interval": 60,
-      "subscribers": [ "master" ]
+      "subscribers": [ "master", "single-node" ]
     },
     "gluster_peer_check": {
       "handlers": ["default"],
@@ -95,13 +95,13 @@
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-qstat.sh",
       "interval": 60,
-      "subscribers": [ "master" ]
+      "subscribers": [ "master", "single-node" ]
     },
     "check-seqware-failed: {
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-seqware-failed.sh",
       "interval": 60,
-      "subscribers": [ "master" ]
+      "subscribers": [ "master", "single-node" ]
     },
     "netapp_check": {
       "command": "unzip -c /glusterfs/netapp/homes1/BOCONNOR/provisioned-bundles/Workflow_Bundle_BWA_2.6.0_SeqWare_1.0.15/Workflow_Bundle_BWA/2.6.0/bin/jre1.7.0_51/lib/rt.jar > /dev/null",
@@ -117,13 +117,13 @@
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-seqware-running.sh",
       "interval": 60,
-      "subscribers": [ "master" ]
+      "subscribers": [ "master", "single-node" ]
     },
     "seqware_check": {
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-cmd.rb --command \"sudo -H -u seqware bash -c '/home/seqware/bin/seqware check'\"",
       "interval": 60,
-      "subscribers": [ "master" ]
+      "subscribers": [ "master", "single-node" ]
     }
   }
 }
