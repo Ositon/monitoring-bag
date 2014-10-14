@@ -32,14 +32,21 @@
     - { role: base }
     - { role: client, subscriptions: "\"common\",\"compute\"" }
 
+- hosts: multi-node-master 
+  sudo: True
+  roles: 
+    - { role: base }
+    - { role: client, subscriptions: "\"common\",\"multi-node-master\"" }
+
 - hosts: master 
   sudo: True
   roles: 
     - { role: base }
     - { role: client, subscriptions: "\"common\",\"master\"" }
 
-- hosts: single-node
-  sudo: True
-  roles: 
-    - { role: base }
-    - { role: client, subscriptions: "\"common\",\"single-node\"" }
+- hosts: master, multi-node-master, worker
+  tasks:
+  # this seems like the wrong place for this, but not sure what the best place for it is if we cannot redistribute 
+  # with the AMI
+  - name: Copy over pem key for BWA
+    copy: src=/home/ubuntu/.ssh/gnostest.pem dest=/home/seqware/provisioned-bundles/Workflow_Bundle_BWA_2.6.1_SeqWare_1.1.0-alpha.2/Workflow_Bundle_BWA/2.6.1/scripts owner=seqware
