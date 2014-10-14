@@ -107,10 +107,10 @@
 - name: Copy over Gluster peer status check
   copy: src={{ item }} dest=/etc/sensu/plugins/ mode=0755
   with_items:
-	- check-gluster.sh
-	- check-qstat.sh
-	- check-seqware-failed.sh
-	- check-seqware-running.sh
+     - check-gluster.sh
+     - check-qstat.sh
+     - check-seqware-failed.sh
+     - check-seqware-running.sh
   notify: restart sensu-client
 
 - name: Activate client services

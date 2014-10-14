@@ -1,4 +1,4 @@
 ---
 sensu_password: "seqware"
 rabbit_password: "seqware"
-graphite_host: "54.172.118.217"
+graphite_host: "54.165.156.160"

@@ -91,7 +91,7 @@
       "interval": 60,
       "subscribers": [ "master" ]
     },
-    "check-qstat: {
+    "check-qstat": {
       "handlers": ["default"],
       "command": "/etc/sensu/plugins/check-qstat.sh",
       "interval": 60,
@@ -102,6 +102,16 @@
       "command": "/etc/sensu/plugins/check-seqware-failed.sh",
       "interval": 60,
       "subscribers": [ "master" ]
+    },
+    "netapp_check": {
+      "command": "unzip -c /glusterfs/netapp/homes1/BOCONNOR/provisioned-bundles/Workflow_Bundle_BWA_2.6.0_SeqWare_1.0.15/Workflow_Bundle_BWA/2.6.0/bin/jre1.7.0_51/lib/rt.jar > /dev/null",
+      "subscribers": [ "compute" ],
+      "interval": 60
+    },
+    "gluster_check": {
+      "command": "ls /mnt/glusterfs/data/ICGC1/scratch/seqware_results/ && ls /mnt/glusterfs/data/ICGC2/seqware_results_icgc/completed/ && ls /mnt/glusterfs/data/ICGC3/seqware_results_icgc/completed/",
+      "subscribers": [ "compute" ],
+      "interval": 60
     },
     "check-seqware-running: {
       "handlers": ["default"],

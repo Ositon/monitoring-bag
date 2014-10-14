@@ -20,6 +20,7 @@
 
 - name: Template over rabbit connector config
   template: src=rabbitmq.json.j2 dest=/etc/sensu/conf.d/rabbitmq.json
+  notify: restart rabbitmq
   
 - name: Template over embedded ruby config
   template: src=sensu.j2 dest=/etc/default/sensu
