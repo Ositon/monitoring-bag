@@ -35,5 +35,8 @@ if [ $days_clean == "d" ]
 		if [ $days -gt 3 ]
 			then echo "The job has been running for more than $days days, please investigate!"
 			exit 2
+		else
+  			echo "All seqware jobs are fine."
+    			exit 0
 		fi
 fi
