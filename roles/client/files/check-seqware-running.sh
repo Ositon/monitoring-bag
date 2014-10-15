@@ -25,16 +25,15 @@ jobid=`sudo -u seqware_user -i /home/seqware/bin/seqware workflow report --acces
 # step4_job_time:  12h
 #....
 
-
-
-
 #Workflow Run Engine ID
 
+days=`echo $jobid | grep "Run Time"| awk -F":" '{print $2}'| awk '{print $1}'`
+days_clean=`echo "${days: -1}"`
 
-if [ $out -gt 0 ]; then
-  echo "Critical: $out seqware jobs have failed!!"
-  exit 2
-else
-  echo "All seqware jobs are fine"
-    exit 0
+if [ $days_clean == "d" ]
+	then days=`echo "${first: 0:1}"` 
+		if [ $days -gt 3 ]
+			then echo "The job has been running for more than $days days, please investigate!"
+			exit 2
+		fi
 fi
